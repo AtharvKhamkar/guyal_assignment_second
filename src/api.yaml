@@ -1,0 +1,108 @@
+openapi: 3.0.0
+info:
+  title: Guyal_Assignment_Second
+  version: 1.0.0
+servers:
+  - url: https://guyal-assignment-second.onrender.com/api
+  - url: http://localhost:2626/api
+  - url: http://localhost:2727/api
+paths:
+  /users/:
+    get:
+      tags:
+        - default
+      summary: Get All Users
+      description: This endpoint is used to get list of all users in the json file.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users:
+    post:
+      tags:
+        - default
+      summary: Post User
+      description: >-
+        This is post request to create new user in json file. You need to pass
+        userName and email as request body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userName: atharv_khamkar
+                email: atharv_khamkar@gmail.com
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/{id}:
+    get:
+      tags:
+        - default
+      summary: Find User
+      description: >-
+        This endpoint is used to get information of a specific user. Just need
+        to pass user Id as a request params.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 41968370-6519-4069-944a-83e86c22bdd0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    patch:
+      tags:
+        - default
+      summary: Update User
+      description: >-
+        This endpoint is used to update the user information. Just need to pass
+        the field which need to update as a request body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userName: atharvkhamkar19
+                email: atharvkhamkar19@gmail.com
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 41968370-6519-4069-944a-83e86c22bdd0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - default
+      summary: Delete User
+      description: >-
+        This endpoint is used to delete user from the json file.Just need to
+        pass user Id as parameter and user object will be deleted from the json
+        file.
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 41968370-6519-4069-944a-83e86c22bdd0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
